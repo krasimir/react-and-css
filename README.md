@@ -1,1 +1,2 @@
-# Proof of concept about using CSSX in React
+# Using vanilla CSS in React application
+
