@@ -69,7 +69,7 @@ css() {
 
 ### Scoping
 
-If you check some of [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
+If you check some of the [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
 
 ```jsx
 class Component extends React.Component {
