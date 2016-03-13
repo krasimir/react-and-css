@@ -36,7 +36,7 @@ To make the code above works you'll need:
 * CSSX component (`npm install react-cssx`)
 * CSSX transpiler (It's available [here](https://github.com/krasimir/cssx/tree/master/packages/cssx-transpiler). Get it as a [webpack loader](https://github.com/krasimir/cssx/blob/master/packages/cssx-loader) or [gulp plugin](https://github.com/krasimir/cssx/blob/master/packages/gulp-cssx).)
 
----
+### CSSX component
 
 `<CSSX>` component requires only one attribute - `styles`. It should be an array in the following format:
 
@@ -65,9 +65,9 @@ css() {
 }
 ```
 
-*Notice that we should use a function that returns a `<style>` tag. If we create the `<style>` tag directly in the render method we'll get the CSS applied straight away to the whole page.
+*Notice that we should use a function that returns a `<style>` tag. If we create the `<style>` tag directly in the render method we'll get the CSS applied straight away to the whole page.*
 
----
+### Scoping
 
 If you check some of [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
 
@@ -109,7 +109,7 @@ The first one does not have any local styles attached. However, the second and t
 
 ![CSSX](./example/2/result-head.png)
 
----
+### Misc
 
 If this sounds interesting to you follow the links below:
 
