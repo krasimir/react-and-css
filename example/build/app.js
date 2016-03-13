@@ -71,13 +71,10 @@
 	var Component = function (_React$Component) {
 	  _inherits(Component, _React$Component);
 	
-	  function Component(props) {
+	  function Component() {
 	    _classCallCheck(this, Component);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Component).call(this, props));
-	
-	    _this.state = { color: '#000' };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Component).apply(this, arguments));
 	  }
 	
 	  _createClass(Component, [{
@@ -85,27 +82,34 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        _CSSX2.default,
-	        { styles: this.css.bind(this) },
+	        { styles: this.css() },
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'Hello world'
+	          'Title styled with ',
+	          _react2.default.createElement(
+	            'i',
+	            null,
+	            'CSSX'
+	          )
 	        ),
-	        _react2.default.createElement('input', { defaultValue: '#000', type: 'text', onChange: this._handleColorChange.bind(this) })
+	        _react2.default.createElement('input', { defaultValue: '#000', type: 'text', onChange: this._change.bind(this) })
 	      );
 	    }
 	  }, {
 	    key: 'css',
 	    value: function css() {
 	      return function () {
-	        var _47 = {};
-	        _47['color'] = this.state.color;
-	        return [['h1', _47]];
+	        var _4 = {};
+	        _4['text-decoration'] = 'underline';
+	        var _3 = {};
+	        _3['color'] = this.state ? this.state.color : '#000';
+	        return [['h1', _3], ['h1 i', _4]];
 	      }.apply(this);
 	    }
 	  }, {
-	    key: '_handleColorChange',
-	    value: function _handleColorChange(e) {
+	    key: '_change',
+	    value: function _change(e) {
 	      this.setState({ color: e.target.value });
 	    }
 	  }]);
@@ -19849,7 +19853,7 @@
 					_createClass(CSSX, [{
 						key: 'render',
 						value: function render() {
-							this.state.cssScope.d(this.props.styles());
+							this.state.cssScope.d(this.props.styles);
 							return _react2.default.createElement('div', { id: this.state.cssScopeId }, this.props.children);
 						}
 					}]);

@@ -17,7 +17,7 @@ export default class CSSX extends React.Component {
     this.state = { cssScope, cssScopeId }
   }
   render() {    
-    this.state.cssScope.d(this.props.styles());
+    this.state.cssScope.d(this.props.styles);
     return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
   }
 }
