@@ -19,9 +19,9 @@
     "url": "git@github.com:krasimir/react-and-css.git"
   },
   "scripts": {
-    "dev": "webpack --config webpack.config.component.js --watch --inline",
+    "dev": "webpack --watch --inline",
     "dev-example": "webpack --config webpack.config.example.js --watch --inline",
-    "build": "webpack --config webpack.config.component.js && webpack --config webpack.config.example.js"
+    "build": "webpack"
   },
   "dependencies": {
     "cssx": "3.6.0"

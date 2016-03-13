@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CSSX from '../../lib/CSSX';
+import CSSX from 'react-cssx';
 
 class Component extends React.Component {
   render() {

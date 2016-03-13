@@ -1,23 +1,24 @@
 module.exports = {
-  entry: './src/CSSX.jsx',
+  entry: './src/app.jsx',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
-    filename: 'CSSX.js',
-    libraryTarget: 'umd'
-  },
-  externals: {
-      'react': 'react'
+    path: __dirname + '/build',
+    filename: 'app.js'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        loader: 'babel',
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /(\.js|\.jsx)$/,
+        loader: 'cssx-loader',
+        exclude: /node_modules/
       }
     ]
   }
