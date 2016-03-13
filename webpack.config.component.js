@@ -1,9 +1,13 @@
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/CSSX.jsx',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/build',
-    filename: 'app.js'
+    path: __dirname + '/lib',
+    filename: 'CSSX.js',
+    libraryTarget: 'umd'
+  },
+  externals: {
+      'react': 'react'
   },
   module: {
     loaders: [
