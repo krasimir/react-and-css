@@ -65,7 +65,7 @@ css() {
 }
 ```
 
-*Notice that we should use a function that returns a `<style>` tag. If we create the `<style>` tag directly in the render method we'll get the CSS applied straight away to the whole page.*
+*Notice that we should use a function that returns a `<style>` tag. If we create the `<style>` tag directly (in the render method for example) we'll get the CSS applied straight away to the whole page.*
 
 ### Scoping
 
