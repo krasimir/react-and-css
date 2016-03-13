@@ -4,7 +4,7 @@ import 'cssx';
 var ids = 0;
 var getID = function (prefix) {
   return prefix + '-' + (++ids);
-}
+};
 
 export default class CSSX extends React.Component {
   constructor(props) {
@@ -20,4 +20,8 @@ export default class CSSX extends React.Component {
     this.state.cssScope.d(this.props.styles);
     return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
   }
-}
+};
+
+CSSX.propTypes = {
+  styles: React.PropTypes.array.isRequired
+};

@@ -56,7 +56,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactCssx = __webpack_require__(317);
+	var _reactCssx = __webpack_require__(159);
 	
 	var _reactCssx2 = _interopRequireDefault(_reactCssx);
 	
@@ -83,36 +83,43 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _reactCssx2.default,
-	        { styles: this.css() },
+	        'section',
+	        null,
 	        _react2.default.createElement(
-	          'h1',
+	          'p',
 	          null,
-	          'Title styled with ',
+	          'First paragraph'
+	        ),
+	        _react2.default.createElement(
+	          _reactCssx2.default,
+	          { styles: this.styleParagraph('#F00', 'second') },
 	          _react2.default.createElement(
-	            'i',
+	            'p',
 	            null,
-	            'CSSX'
+	            'Second paragraph'
 	          )
 	        ),
-	        _react2.default.createElement('input', { defaultValue: '#000', type: 'text', onChange: this._change.bind(this) })
+	        _react2.default.createElement(
+	          _reactCssx2.default,
+	          { styles: this.styleParagraph('#00F', 'third') },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Third paragraph'
+	          )
+	        )
 	      );
 	    }
 	  }, {
-	    key: 'css',
-	    value: function css() {
+	    key: 'styleParagraph',
+	    value: function styleParagraph(color, text) {
 	      return function () {
-	        var _33 = {};
-	        _33['text-decoration'] = 'underline';
-	        var _32 = {};
-	        _32['color'] = this.state ? this.state.color : '#000';
-	        return [['h1', _32], ['h1 i', _33]];
+	        var _23 = {};
+	        _23['content'] = text;
+	        var _22 = {};
+	        _22['color'] = color;
+	        return [['p', _22], ['p::before', _23]];
 	      }.apply(this);
-	    }
-	  }, {
-	    key: '_change',
-	    value: function _change(e) {
-	      this.setState({ color: e.target.value });
 	    }
 	  }]);
 	
@@ -19723,165 +19730,7 @@
 
 
 /***/ },
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
