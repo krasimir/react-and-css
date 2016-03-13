@@ -2,7 +2,7 @@
 
 Yet another way to apply CSS styles in JavaScript. It's not using an inline styling though. It's injecting a `<style>` tag to your page.
 
-```
+```jsx
 import React from 'react';
 import CSSX from 'react-cssx';
 
