@@ -36,6 +36,8 @@ To make the code above works you'll need:
 * CSSX component (`npm install react-cssx`)
 * CSSX transpiler (It's available [here](https://github.com/krasimir/cssx/tree/master/packages/cssx-transpiler). Get it as a [webpack loader](https://github.com/krasimir/cssx/blob/master/packages/cssx-loader) or [gulp plugin](https://github.com/krasimir/cssx/blob/master/packages/gulp-cssx).)
 
+Demo [here](http://krasimir.github.io/react-cssx/example/1/) and [here](http://krasimir.github.io/react-cssx/example/2/).
+
 ### CSSX component
 
 `<CSSX>` component requires only one attribute - `styles`. It should be an array in the following format:
@@ -69,7 +71,7 @@ css() {
 
 ### Scoping
 
-If you check some of the [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
+If you check [some](http://krasimir.github.io/react-cssx/example/2/) of the [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
 
 ```jsx
 class Component extends React.Component {
