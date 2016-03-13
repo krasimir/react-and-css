@@ -21,7 +21,8 @@
   "scripts": {
     "dev": "webpack --watch --inline",
     "dev-example": "webpack --config webpack.config.example.js --watch --inline",
-    "build": "webpack"
+    "build": "webpack",
+    "update-site": "gco gh-pages && git merge origin/master && ggpush && gco master"
   },
   "dependencies": {
     "cssx": "3.6.0"
