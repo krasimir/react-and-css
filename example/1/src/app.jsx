@@ -21,6 +21,11 @@ class Component extends React.Component {
         h1 i {
           text-decoration: underline;
         }
+        @media (max-width: 600px) {
+          h1 {
+            color: red;
+          }
+        }
       </style>
     );
   }

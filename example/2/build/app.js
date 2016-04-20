@@ -114,11 +114,17 @@
 	    key: 'styleParagraph',
 	    value: function styleParagraph(color, text) {
 	      return function () {
-	        var _23 = {};
-	        _23['content'] = text;
-	        var _22 = {};
-	        _22['color'] = color;
-	        return [['p', _22], ['p::before', _23]];
+	        var _4 = {};
+	        _4['content'] = text;
+	        var _3 = {};
+	        _3['color'] = color;
+	        var _2 = [];
+	
+	        _2.push(['p', _3]);
+	
+	        _2.push(['p::before', _4]);
+	
+	        return _2;
 	      }.apply(this);
 	    }
 	  }]);

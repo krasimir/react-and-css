@@ -102,11 +102,27 @@
 	    key: 'css',
 	    value: function css() {
 	      return function () {
-	        var _33 = {};
-	        _33['text-decoration'] = 'underline';
-	        var _32 = {};
-	        _32['color'] = this.state ? this.state.color : '#000';
-	        return [['h1', _32], ['h1 i', _33]];
+	        var _13 = {};
+	        _13['color'] = 'red';
+	        var _12 = {};
+	        _12['text-decoration'] = 'underline';
+	        var _11 = {};
+	        _11['color'] = this.state ? this.state.color : '#000';
+	        var _10 = [];
+	
+	        _10.push(['h1', _11]);
+	
+	        _10.push(['h1 i', _12]);
+	
+	        var _14 = {},
+	            _15 = [];
+	        _14['@media (max-width: 600px)'] = _15;
+	
+	        _15.push(['h1', _13]);
+	
+	        _10.push(_14);
+	
+	        return _10;
 	      }.apply(this);
 	    }
 	  }, {
