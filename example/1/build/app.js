@@ -19836,16 +19836,17 @@
 		
 		    var sheet = cssx(getID('cssx-styles'));
 		    var cssScopeId = getID('cssx-el');
-		    var cssScope = sheet.add('#' + cssScopeId);
 		
-		    _this.state = { cssScope: cssScope, cssScopeId: cssScopeId };
+		    sheet.scope('#' + cssScopeId);
+		
+		    _this.state = { sheet: sheet, cssScopeId: cssScopeId };
 		    return _this;
 		  }
 		
 		  _createClass(CSSX, [{
 		    key: 'render',
 		    value: function render() {
-		      this.state.cssScope.d(this.props.styles);
+		      this.state.sheet.add(this.props.styles);
 		      return _react2.default.createElement(
 		        'div',
 		        { id: this.state.cssScopeId },
@@ -19930,7 +19931,7 @@
 		/* 0 */
 		/***/ function(module, exports, __webpack_require__) {
 		
-			var factory, goGlobal, stylesheets, api, randomId;
+			var factory, goGlobal, stylesheets, api, randomId, plugins = [];
 			
 			__webpack_require__(1);
 			
@@ -19957,7 +19958,7 @@
 			  return s;
 			};
 			
-			api = function (id) { return createStyleSheet(id); };
+			api = function (id) { return createStyleSheet(id, plugins); };
 			
 			api.domChanges = function (flag) {
 			  factory.disableDOMChanges = !flag;
@@ -19987,6 +19988,9 @@
 			    css += stylesheets[i].getCSS();
 			  }
 			  return css;
+			};
+			api.plugins = function (arr) {
+			  plugins = plugins.concat(arr);
 			};
 			
 			module.exports = api;
@@ -20215,7 +20219,7 @@
 			var ids = 0;
 			var getId = function () { return 'x' + (++ids); };
 			
-			module.exports = function (id) {
+			module.exports = function (id, plugins) {
 			  var _id = id || getId();
 			  var _api = {};
 			  var _rules = [];
@@ -20224,6 +20228,7 @@
 			  var _css = '';
 			  var _graph = {};
 			  var _queries = {};
+			  var _scope = '';
 			
 			  var ruleExists = function (selector, parent) {
 			    var i, rule, areParentsMatching, areThereNoParents;
@@ -20264,12 +20269,22 @@
 			    return _id;
 			  };
 			  _api.add = function (selector, props, parent, isWrapper) {
-			    var rule, r, s;
+			    var rule, r, s, scope;
 			
 			    if (arguments.length === 1 && typeof selector === 'object') {
 			      if (isArray(selector)) {
-			        selector.forEach(function (s) {
-			          _api.add(s[0], s[1]);
+			        selector.forEach(function (sel) {
+			          if (isArray(sel)) {
+			            _api.add(sel[0], sel[1]);
+			          } else {
+			            // nested
+			            for (s in sel) {
+			              scope = _api.add(s);
+			              sel[s].forEach(function (nestedStyles) {
+			                scope.n(nestedStyles[0], nestedStyles[1]);
+			              });
+			            }
+			          }
 			        });
 			      } else {
 			        for (s in selector) {
@@ -20308,7 +20323,7 @@
 			    return _api.compileImmediate();
 			  };
 			  _api.compileImmediate = function () {
-			    _css = generate(getOnlyTopRules(), module.exports.minify);
+			    _css = generate(getOnlyTopRules(), module.exports.minify, plugins, _scope);
 			    if (!module.exports.disableDOMChanges) {
 			      _remove = applyToDOM(_css, _id);
 			    }
@@ -20384,7 +20399,9 @@
 			  _api.define = function (prop, func) {
 			    _customProperties[prop] = func;
 			  };
-			
+			  _api.scope = function (scope) {
+			    _scope = scope;
+			  };
 			  _api._getCustomProps = function () {
 			    return _customProperties;
 			  };
@@ -20968,14 +20985,29 @@
 			var isEmpty = __webpack_require__(15);
 			var resolveSelector = __webpack_require__(13);
 			var prefix = __webpack_require__(16);
+			var applyPlugins, areThereAnyPlugins = false, n;
 			
-			module.exports = function (rules, minify) {
+			module.exports = function (rules, minify, plugins, scope) {
+			
+			  var scopeTheSelector = function (selector) {
+			    if (scope === '') return selector;
+			    if (selector.indexOf(scope) === 0 || selector.indexOf('@') === 0) return selector;
+			    return scope + ' ' + selector;
+			  };
 			
 			  // duplicate those that need prefixing
 			  rules = prefix.selector(rules);
 			
+			  areThereAnyPlugins = plugins && plugins.length > 0;
+			  applyPlugins = function (props) {
+			    for (n = 0; n < plugins.length; n++) {
+			      props = plugins[n](props);
+			    }
+			    return props;
+			  };
+			
 			  return (function generate(rules, parent, minify, nesting, nested) {
-			    var i, j, rule, props, prop, children, nestedChildren, selector, cssValue, tab;
+			    var i, j, rule, props, propsFinal, prop, children, nestedChildren, selector, tab;
 			    var css = '';
 			    var newLine = minify ? '' : '\n';
 			    var interval = minify ? '' : ' ';
@@ -20988,14 +21020,19 @@
 			      nestedChildren = rule.getNestedChildren();
 			      selector = (parent ? parent + ' ' : '');
 			      selector += resolveSelector(rule.selector);
+			      selector = scopeTheSelector(selector);
 			      props = typeof rule.props === 'function' ? rule.props() : rule.props;
 			      if (!isEmpty(props) || nestedChildren.length > 0) {
 			        css += nesting + selector + interval + '{' + newLine;
 			        props = prefix.property(props);
 			        if (props) {
+			          propsFinal = {};
 			          for (prop in props) {
-			            cssValue = typeof props[prop] === 'function' ? props[prop]() : props[prop];
-			            css += tab + prop + ':' + interval + cssValue + ';' + newLine;
+			            propsFinal[prop] = typeof props[prop] === 'function' ? props[prop]() : props[prop];
+			          }
+			          propsFinal = areThereAnyPlugins ? applyPlugins(propsFinal) : propsFinal;
+			          for (prop in propsFinal) {
+			            css += tab + prop + ':' + interval + propsFinal[prop] + ';' + newLine;
 			          }
 			        }
 			        for (j = 0; j < nestedChildren.length; j++) {
