@@ -56,7 +56,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactCssx = __webpack_require__(317);
+	var _reactCssx = __webpack_require__(159);
 	
 	var _reactCssx2 = _interopRequireDefault(_reactCssx);
 	
@@ -69,6 +69,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	// import CSSX from '../../../lib/CSSX.js';
+	// import CSSX from '../../../src/CSSX.jsx';
 	
 	var Component = function (_React$Component) {
 	  _inherits(Component, _React$Component);
@@ -102,27 +103,27 @@
 	    key: 'css',
 	    value: function css() {
 	      return function () {
-	        var _13 = {};
-	        _13['color'] = 'red';
-	        var _12 = {};
-	        _12['text-decoration'] = 'underline';
-	        var _11 = {};
-	        _11['color'] = this.state ? this.state.color : '#000';
-	        var _10 = [];
+	        var _5 = {};
+	        _5['color'] = 'red';
+	        var _4 = {};
+	        _4['text-decoration'] = 'underline';
+	        var _3 = {};
+	        _3['color'] = this.state ? this.state.color : '#000';
+	        var _2 = [];
 	
-	        _10.push(['h1', _11]);
+	        _2.push(['h1', _3]);
 	
-	        _10.push(['h1 i', _12]);
+	        _2.push(['h1 i', _4]);
 	
-	        var _14 = {},
-	            _15 = [];
-	        _14['@media (max-width: 600px)'] = _15;
+	        var _6 = {},
+	            _7 = [];
+	        _6['@media (max-width: 600px)'] = _7;
 	
-	        _15.push(['h1', _13]);
+	        _7.push(['h1', _5]);
 	
-	        _10.push(_14);
+	        _2.push(_6);
 	
-	        return _10;
+	        return _2;
 	      }.apply(this);
 	    }
 	  }, {
@@ -19739,165 +19740,7 @@
 
 
 /***/ },
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -20015,6 +19858,11 @@
 		}(_react2.default.Component);
 		
 		exports.default = CSSX;
+		;
+		
+		CSSX.propTypes = {
+		  styles: _react2.default.PropTypes.array.isRequired
+		};
 	
 	/***/ },
 	/* 1 */

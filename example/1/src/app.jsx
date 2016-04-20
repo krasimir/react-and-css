@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CSSX from 'react-cssx';
 // import CSSX from '../../../lib/CSSX.js';
+// import CSSX from '../../../src/CSSX.jsx';
 
 class Component extends React.Component {
   render() {

@@ -12,12 +12,13 @@ export default class CSSX extends React.Component {
 
     let sheet = cssx(getID('cssx-styles'));
     let cssScopeId = getID('cssx-el');
-    let cssScope = sheet.add('#' + cssScopeId)
 
-    this.state = { cssScope, cssScopeId }
+    sheet.scope('#' + cssScopeId);
+
+    this.state = { sheet, cssScopeId };
   }
   render() {    
-    this.state.cssScope.d(this.props.styles);
+    this.state.sheet.add(this.props.styles);
     return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
   }
 };
