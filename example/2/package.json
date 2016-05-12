@@ -15,7 +15,7 @@
     "babel-preset-react": "6.5.0",
     "cssx-loader": "3.8.2",
     "react": "0.14.7",
-    "react-cssx": "1.0.3",
+    "react-cssx": "1.1.0",
     "react-dom": "0.14.7",
     "webpack": "1.12.14"
   }
