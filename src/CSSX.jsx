@@ -17,6 +17,9 @@ export default class CSSX extends React.Component {
 
     this.state = { sheet, cssScopeId };
   }
+  componentWillUnmount() {
+    this.state.sheet.destroy();
+  }
   render() {    
     this.state.sheet.add(this.props.styles);
     return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
@@ -24,5 +27,5 @@ export default class CSSX extends React.Component {
 };
 
 CSSX.propTypes = {
-  styles: React.PropTypes.array.isRequired
+  styles: React.PropTypes.object.isRequired
 };

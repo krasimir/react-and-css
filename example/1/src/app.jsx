@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CSSX from 'react-cssx';
+// import CSSX from 'react-cssx';
 // import CSSX from '../../../lib/CSSX.js';
-// import CSSX from '../../../src/CSSX.jsx';
+import CSSX from '../../../src/CSSX.jsx';
 
 class Component extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: '#000'
+    }
+  }
   render() {
     return (
       <CSSX styles={ this.css() }>
@@ -17,7 +23,7 @@ class Component extends React.Component {
     return (
       <style>
         h1 {
-          color: {{ this.state ? this.state.color : '#000' }};
+          color: {{ this.state.color }};
         }
         h1 i {
           text-decoration: underline;
@@ -35,4 +41,16 @@ class Component extends React.Component {
   }
 }
 
-ReactDOM.render(<Component />, document.querySelector('#content'));
+class Replacement extends React.Component {
+  render() {
+    return <p>Something else</p>;
+  }
+}
+
+var content = document.querySelector('#content');
+var button = document.querySelector('button');
+
+ReactDOM.render(<Component />, content);
+button.addEventListener('click', function () {
+  ReactDOM.render(<Replacement />, content);
+});
