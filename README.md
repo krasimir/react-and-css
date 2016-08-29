@@ -34,7 +34,7 @@ class Component extends React.Component {
 To make the code above works you'll need:
 
 * CSSX component (`npm install react-cssx`)
-* CSSX transpiler (It's available [here](https://github.com/krasimir/cssx/tree/master/packages/cssx-transpiler). Get it as a [webpack loader](https://github.com/krasimir/cssx/blob/master/packages/cssx-loader) or [gulp plugin](https://github.com/krasimir/cssx/blob/master/packages/gulp-cssx).)
+* CSSX transpiler (It's available [here](https://github.com/krasimir/cssx/tree/master/packages/cssx-transpiler). Get it as a [webpack loader](https://github.com/krasimir/cssx/blob/master/packages/cssx-loader), [Meteor package](https://github.com/Quadric/meteor-cssx) or [gulp plugin](https://github.com/krasimir/cssx/blob/master/packages/gulp-cssx).)
 
 Demo [here](http://krasimir.github.io/react-cssx/example/1/) and [here](http://krasimir.github.io/react-cssx/example/2/).
 
