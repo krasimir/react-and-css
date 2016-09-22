@@ -8,7 +8,7 @@ class Component extends React.Component {
     return (
       <section>
         <p>First paragraph</p>
-        <CSSX styles={ this.styleParagraph('#F00', 'second') }>
+        <CSSX styles={ this.styleParagraph('#F00', 'second') } data-element='h1'>
           <p>Second paragraph</p>
         </CSSX>
         <CSSX styles={ this.styleParagraph('#00F', 'third') }>
@@ -23,7 +23,7 @@ class Component extends React.Component {
         p {
           color: {{ color }};
         }
-        p::before { 
+        p::before {
           content: {{ text }};
         }
       </style>

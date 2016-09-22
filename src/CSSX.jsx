@@ -20,12 +20,21 @@ export default class CSSX extends React.Component {
   componentWillUnmount() {
     this.state.sheet.destroy();
   }
-  render() {    
+  render() {
     this.state.sheet.add(this.props.styles);
-    return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
+    return React.createElement(
+      this.props['data-element'],
+      { id: this.state.cssScopeId },
+      this.props.children
+    );
   }
 };
 
 CSSX.propTypes = {
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
+  'data-element': React.PropTypes.string
 };
+
+CSSX.defaultProps = {
+  'data-element': 'div'
+}

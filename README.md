@@ -40,7 +40,7 @@ Demo [here](http://krasimir.github.io/react-cssx/example/1/) and [here](http://k
 
 ### CSSX component
 
-`<CSSX>` component requires only one attribute - `styles`. It should be an array in the following format:
+`<CSSX>` component has only one required attribute - `styles`. It should be an array in the following format:
 
 ```js
 [
@@ -69,6 +69,16 @@ css() {
 
 *Notice that we should use a function that returns a `<style>` tag. If we create the `<style>` tag directly (in the render method for example) we'll get the CSS applied straight away to the whole page.*
 
+#### CSSX component's wrapper
+
+The `<CSSX>` component generates a `<div>` by default. Use the `data-element` attribute to specify the tag that you need:
+
+```
+<CSSX styles={ ... } data-element='h1'>
+  <p>Paragraph</p>
+</CSSX>
+```
+
 ### Scoping
 
 If you check [some](http://krasimir.github.io/react-cssx/example/2/) of the [examples](https://github.com/krasimir/react-cssx/tree/master/example) in a browser you'll see that the created styles are scoped to a specific element. For example:
@@ -94,7 +104,7 @@ class Component extends React.Component {
         p {
           color: {{ color }};
         }
-        p::before { 
+        p::before {
           content: {{ text }};
         }
       </style>
@@ -119,6 +129,3 @@ If this sounds interesting to you follow the links below:
 * [CSSX *language*](https://github.com/krasimir/cssx/blob/master/docs/cssx-lang.md)
 * [CSSX client-side library](https://github.com/krasimir/cssx/tree/master/packages/cssx)
 * [CSSX transpiler](https://github.com/krasimir/cssx/tree/master/packages/cssx-transpiler)
-
-
-

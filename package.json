@@ -1,6 +1,6 @@
 {
   "name": "react-cssx",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Proof of concept about using CSSX in React",
   "main": "lib/CSSX.js",
   "author": {
@@ -20,7 +20,6 @@
   },
   "scripts": {
     "dev": "webpack --watch --inline",
-    "dev-example": "webpack --config webpack.config.example.js --watch --inline",
     "build": "webpack",
     "update-site": "gco gh-pages && git merge origin/master && ggpush && gco master"
   },
