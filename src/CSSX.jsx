@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children, PropTypes } from 'react';
 import 'cssx';
 
 var ids = 0;
@@ -13,7 +13,7 @@ export default class CSSX extends React.Component {
     let sheet = cssx(getID('cssx-styles'));
     let cssScopeId = getID('cssx-el');
 
-    sheet.scope('#' + cssScopeId);
+    sheet.scope(`[data-cssx='${cssScopeId}']`);
 
     this.state = { sheet, cssScopeId };
   }
@@ -22,19 +22,14 @@ export default class CSSX extends React.Component {
   }
   render() {
     this.state.sheet.add(this.props.styles);
-    return React.createElement(
-      this.props['data-element'],
-      { id: this.state.cssScopeId },
-      this.props.children
-    );
+
+    return Children.only(React.cloneElement(this.props.children, {
+      'data-cssx': this.state.cssScopeId,
+    }));
   }
 };
 
 CSSX.propTypes = {
-  styles: React.PropTypes.object.isRequired,
-  'data-element': React.PropTypes.string
+  styles: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired
 };
-
-CSSX.defaultProps = {
-  'data-element': 'div'
-}
