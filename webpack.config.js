@@ -1,3 +1,5 @@
+const babelLoaderConfig = require('./babel.js');
+
 module.exports = {
   entry: './src/CSSX.jsx',
   devtool: 'source-map',
@@ -14,10 +16,8 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        loader: require.resolve('babel-loader'),
+        query: babelLoaderConfig,
       }
     ]
   }
