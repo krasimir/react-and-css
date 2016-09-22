@@ -20,9 +20,9 @@ export default class CSSX extends React.Component {
   componentWillUnmount() {
     this.state.sheet.destroy();
   }
-  render() {    
+  render() {
     this.state.sheet.add(this.props.styles);
-    return <div id={ this.state.cssScopeId }>{ this.props.children }</div>;
+    return <div id={ this.state.cssScopeId } { ...this.props }></div>;
   }
 };
 
