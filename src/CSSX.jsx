@@ -24,7 +24,10 @@ export default class CSSX extends React.Component {
     this.state.sheet.add(this.props.styles);
     return React.createElement(
       this.props['data-element'],
-      { id: this.state.cssScopeId },
+      {
+        id: this.state.cssScopeId,
+        ...this.props,
+      },
       this.props.children
     );
   }
