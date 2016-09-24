@@ -1,6 +1,6 @@
 {
   "name": "react-cssx",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Proof of concept about using CSSX in React",
   "main": "lib/CSSX.js",
   "author": {
