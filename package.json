@@ -1,6 +1,6 @@
 {
   "name": "react-cssx",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Proof of concept about using CSSX in React",
   "main": "lib/CSSX.js",
   "author": {
@@ -30,9 +30,9 @@
     "babel": "6.5.2",
     "babel-core": "6.14.0",
     "babel-loader": "6.2.5",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-es2016": "^6.11.3",
-    "babel-preset-react": "^6.11.1",
+    "babel-preset-es2015": "6.14.0",
+    "babel-preset-es2016": "6.11.3",
+    "babel-preset-react": "6.11.1",
     "cssx-loader": "5.2.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
