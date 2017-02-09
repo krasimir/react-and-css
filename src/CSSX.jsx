@@ -22,11 +22,17 @@ export default class CSSX extends React.Component {
   }
   render() {
     this.state.sheet.add(this.props.styles);
+
+    var props = { ...this.props };
+    if (this.props['data-element'] === CSSX.defaultProps['data-element']) {
+      delete props.styles;
+    }
+
     return React.createElement(
       this.props['data-element'],
       {
         id: this.state.cssScopeId,
-        ...this.props,
+        ...props,
       },
       this.props.children
     );
